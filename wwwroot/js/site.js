@@ -2,3 +2,14 @@
 // for details on configuring this project to bundle and minify static web assets.
 
 // Write your JavaScript code.
+function mostrarActores(idS)
+{
+    
+    $.ajax(
+        {
+            type: 'POST',
+            dateType: 'JSON',
+            url: '/Home/VerDetalle'
+        }
+    )
+}

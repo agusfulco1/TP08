@@ -15,13 +15,14 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
+        ViewBag.Series = 
         return View();
     }
-
-    public IActionResult Privacy()
+    public List<Actores> ListarActoresAJAX(int idSerie)
     {
-        return View();
+
     }
+    
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
