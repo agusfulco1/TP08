@@ -1,8 +1,44 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿<div class="text-center">
+    <h1 class="display-4">Bienvenido a TechSeries</h1>
+    <img src = "Captura.png">
+    <p>Toda la informacion que querés saber en un solo lugar</p>
+    @foreach (var item in ViewBag.Series)
+    {
+        <div class="card" style="width: 18rem;">
+            <img class="@item.imagenSerie" src="..." alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">@item.Nombre</h5>
+                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#Modal" onclick="MostrarTemporada(@item.IdSeries)">
+                    Temporadas
+                </button>
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#Modal" onclick="MostrarActores(@item.IdSeries)">
+                    Actores
+                </button>
+                <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#Modal" onclick="MostrarSinopsis(@item.IdSeries)">
+                    Mas info
+                </button>
+            </div>
+        </div>
+    }
+</div>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<!--Modal-->
+<div class="modal fade" id="Modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="Titulo"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p id="Text"></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
 </div>
