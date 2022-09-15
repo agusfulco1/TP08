@@ -9,14 +9,14 @@ function MostrarActores(idS)
         {
             type: 'POST',
             dateType: 'JSON',
-            url: '/Home/ListarActoresAjax',
-            data: {IdSeries : idS},
+            url: '/Home/ListarActoresAJAX',
+            data: {IdS: idS},
             success:
                 function(response)
                 {
                     let body = "";
                     response.forEach(element => {
-                    body+= response.nombre;
+                    body+= element.nombre + "<br>";
                     });
                     $("#Texto").html(body);
                 }

@@ -18,10 +18,11 @@ public class HomeController : Controller
         ViewBag.Series = BDSeries.ListarSeries();
         return View();
     }
-    /*public List<Actores> ListarActoresAJAX(int idS)
+    public List<Actores> ListarActoresAJAX(int IdS)
     {
-
-    }*/
+        ViewBag.ListaActores = BDSeries.ListarActores(IdS);
+        return ViewBag.ListaActores;
+    }
     
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

@@ -5,16 +5,16 @@
     @foreach (var item in ViewBag.Series)
     {
         <div class="card" style="width: 18rem;">
-            <img class="@item.imagenSerie" src="..." alt="Card image cap">
+            <img class="" src="@item.imagenSerie" alt="Card image cap">
             <div class="card-body">
-                <h5 class="card-title">@item.Nombre</h5>
-                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#Modal" onclick="MostrarTemporada(@item.IdSeries)">
+                <h5 class="card-title">@item.nombre</h5>
+                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#Modal" onclick="MostrarTemporada(@item.idSerie)">
                     Temporadas
                 </button>
-                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#Modal" onclick="MostrarActores(@item.IdSeries)">
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#Modal" onclick="MostrarActores(@item.idSerie)">
                     Actores
                 </button>
-                <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#Modal" onclick="MostrarSinopsis(@item.IdSeries)">
+                <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#Modal" onclick="MostrarSinopsis(@item.idSerie)">
                     Mas info
                 </button>
             </div>
@@ -33,7 +33,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <p id="Text"></p>
+        <p id="Texto">Hola</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
