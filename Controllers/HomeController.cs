@@ -15,13 +15,13 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        ViewBag.Series = 
+        ViewBag.Series = BDSeries.ListarSeries();
         return View();
     }
-    public List<Actores> ListarActoresAJAX(int idSerie)
+    /*public List<Actores> ListarActoresAJAX(int idS)
     {
 
-    }
+    }*/
     
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
