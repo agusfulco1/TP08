@@ -30,14 +30,14 @@ function MostrarTemporada(idS)
         {
             type: 'POST',
             dateType: 'JSON',
-            url: '/Home/ListarTemporadasAjax',
+            url: '/Home/ListarTemporadasAJAX',
             data: {IdSeries : idS},
             success:
                 function(response)
                 {
                     let body = "";
                     response.forEach(element => {
-                    body+= response.NumeroTemporada;
+                    body+= Element.NumeroTemporada;
                     });
                     $("#Texto").html(body);
                 }

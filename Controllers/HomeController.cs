@@ -23,7 +23,11 @@ public class HomeController : Controller
         ViewBag.ListaActores = BDSeries.ListarActores(IdS);
         return ViewBag.ListaActores;
     }
-    
+    public List<Temporadas> ListarTemporadasAJAX(int IdS)
+    {
+        ViewBag.ListaTemporadas = BDSeries.ListarTemporadasAJAX(IdS);
+        return ViewBag.ListaActores;
+    }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()

@@ -33,5 +33,12 @@ namespace TP08.Models
                 return listaTemporadas = db.Query<Temporadas>(sql, new {Pidserie = idS}).ToList();
             }
         }
+        public static Series VerInfoSerie(int idS)
+        {
+            using(SqlConnection db = new SqlConnection(_connectionString)){
+                string sql = "SELECT * FROM Series WHERE IdSerie = @Pidserie";
+                return listaTemporadas = db.Query<Temporadas>(sql, new {Pidserie = idS}).ToList();
+            }
+        }
     }
 }
