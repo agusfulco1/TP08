@@ -11,7 +11,7 @@ namespace TP08.Models
         private static List<Series> listaSeries = new List<Series>();
         private static List<Actores> listaActores = new List<Actores>();
         private static List<Temporadas> listaTemporadas = new List<Temporadas>();
-        private static string _connectionString = @"Server=A-PHZ2-CIDI-006;DataBase=BDSeries;Trusted_Connection=True;";
+        private static string _connectionString = @"Server=DESKTOP-C5J7C68\SQLEXPRESS;DataBase=BDSeries;Trusted_Connection=True;";
         public static List<Series> ListarSeries()
         {
             using(SqlConnection db = new SqlConnection(_connectionString)){
@@ -35,9 +35,10 @@ namespace TP08.Models
         }
         public static Series VerInfoSerie(int idS)
         {
+            Series serie;
             using(SqlConnection db = new SqlConnection(_connectionString)){
                 string sql = "SELECT * FROM Series WHERE IdSerie = @Pidserie";
-                return listaTemporadas = db.Query<Temporadas>(sql, new {Pidserie = idS}).ToList();
+                return serie = db.QueryFirstOrDefault<Series>(sql, new {Pidserie = idS});
             }
         }
     }

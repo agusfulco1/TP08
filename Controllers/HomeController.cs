@@ -25,10 +25,14 @@ public class HomeController : Controller
     }
     public List<Temporadas> ListarTemporadasAJAX(int IdS)
     {
-        ViewBag.ListaTemporadas = BDSeries.ListarTemporadasAJAX(IdS);
-        return ViewBag.ListaActores;
+        ViewBag.ListaTemporadas = BDSeries.ListarTemporadas(IdS);
+        return ViewBag.ListaTemporadas;
     }
-
+    public Series ListarSinopsisAJAX(int IdS)
+    {
+        ViewBag.Serie = BDSeries.VerInfoSerie(IdS);
+        return ViewBag.Serie;
+    }
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
     {

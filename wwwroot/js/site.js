@@ -2,7 +2,7 @@
 // for details on configuring this project to bundle and minify static web assets.
 
 // Write your JavaScript code.
-function MostrarActores(idS)
+function MostrarActores(idS,nombreSerie)
 {
     
     $.ajax(
@@ -19,49 +19,49 @@ function MostrarActores(idS)
                     body+= element.nombre + "<br>";
                     });
                     $("#Texto").html(body);
+                    $("#Titulo").html("Actores de la serie " + nombreSerie)
                 }
 
         }
     );
 }
-function MostrarTemporada(idS)
+function MostrarTemporada(idS,nombreSerie)
 {
     $.ajax(
         {
             type: 'POST',
             dateType: 'JSON',
             url: '/Home/ListarTemporadasAJAX',
-            data: {IdSeries : idS},
+            data: {IdS: idS},
             success:
-                function(response)
+                function(responses)
                 {
                     let body = "";
-                    response.forEach(element => {
-                    body+= Element.NumeroTemporada;
+                    responses.forEach(element => {
+                    body+= element.tituloTemporada + "<br>";
                     });
                     $("#Texto").html(body);
+                    $("#Titulo").html("Temporadas de la serie " + nombreSerie)
                 }
     
         }
     );
 }
 
-function MostrarSinopsis(idS)
+function MostrarSinopsis(idS,nombreSerie)
 {
     $.ajax(
         {
             type: 'POST',
             dateType: 'JSON',
-            url: '/Home/ListarSinopsisAjax',
-            data: {IdSeries : idS},
+            url: '/Home/ListarSinopsisAJAX',
+            data: {IdS : idS},
             success:
-                function(response)
+                function(Response)
                 {
-                    let body = "";
-                    response.forEach(element => {
-                    body+= response.Sinopsis;
-                    });
-                    $("#Texto").html(body);
+                    $("#Texto").html(Response.sinopsis);
+                    $("#Titulo").html("Info de la serie " + nombreSerie);
+                    $("#fotoSerie").attr("src", Response.imagenSerie);
                 }
     
         }

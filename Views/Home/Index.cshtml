@@ -1,25 +1,33 @@
 ﻿<div class="text-center">
+  <div class="text-white">
     <h1 class="display-4">Bienvenido a Tech+</h1>
-    <img src = "Captura.png">
-    <p>Toda la informacion que querés saber en un solo lugar</p>
-    @foreach (var item in ViewBag.Series)
-    {
-        <div class="card" style="width: 18rem;">
+    <img src = "Captura.png"><br>
+    <font size="3"><p><b>Toda la informacion que querés saber en un solo lugar</b></p></font>
+  </div>
+
+    <div class="row">
+      @foreach (var item in ViewBag.Series)
+      {
+        <div class="col-md-4 col-12">
+          <div class="card" style="width: 18rem;">
             <img class="" src="@item.imagenSerie" alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title">@item.nombre</h5>
-                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#Modal" onclick="MostrarTemporada(@item.idSerie)">
+                <button type="button" class="btn btn-danger text-dark" data-toggle="modal" data-target="#Modal" onclick="MostrarTemporada(@item.idSerie, '@item.nombre')">
                     Temporadas
                 </button>
-                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#Modal" onclick="MostrarActores(@item.idSerie)">
+                <button type="button" class="btn btn-success text-dark" data-toggle="modal" data-target="#Modal" onclick="MostrarActores(@item.idSerie, '@item.nombre')">
                     Actores
                 </button>
-                <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#Modal" onclick="MostrarSinopsis(@item.idSerie)">
+                <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#Modal" onclick="MostrarSinopsis(@item.idSerie, '@item.nombre')">
                     Mas info
                 </button>
             </div>
-        </div>
-    }
+          </div>
+        </div>  
+      }
+    </div>
+    
 </div>
 
 <!--Modal-->
@@ -33,6 +41,7 @@
         </button>
       </div>
       <div class="modal-body">
+        <img class="img-fluid" id="fotoSerie">
         <p id="Texto">Hola</p>
       </div>
       <div class="modal-footer">
